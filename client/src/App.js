@@ -8,6 +8,8 @@ const ProductCard = ({ product }) => (
     {product.promotion_flag && (
       <span className="promotion-badge">Trending</span>
     )}
+    <img className="product-image" src="shirtplaceholder.jpg" alt="product" />
+    {/* <img src={product.image_url} alt={product.name} /> */}
     <h3>{product.name}</h3>
     <p className="category">{product.category}</p>
     <p className="price">${product.price.toFixed(2)}</p>
@@ -19,7 +21,24 @@ const OutfitCard = ({ outfit }) => (
     <h3>Complete Outfit</h3>
     <ul className="outfit-items">
       {outfit.items.map((item) => (
-        <li key={item.id}>
+        <li
+          style={{
+            display: "inline-flex",
+            flexDirection: "column",
+            gap: "5px",
+          }}
+          key={item.id}
+        >
+          {/* <img
+            className="product-image"
+            src={product.image_url}
+            alt={product.name}
+          /> */}
+          <img
+            className="product-image"
+            src="shirtplaceholder.jpg"
+            alt="product"
+          />
           <span>{item.name}</span>
           <span>${item.price.toFixed(2)}</span>
         </li>
