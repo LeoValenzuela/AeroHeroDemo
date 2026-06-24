@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "Classic White Tee",
+    "category": "top",
+    "style_tags": ["minimalist", "casual", "basics"],
+    "price": 25.00,
+    "promotion_flag": false
+  },
+  {
+    "id": 2,
+    "name": "Ripped Skinny Jeans",
+    "category": "bottom",
+    "style_tags": ["streetwear", "casual", "edgy"],
+    "price": 75.00,
+    "promotion_flag": true
+  },
+  {
+    "id": 3,
+    "name": "High-Top Sneakers",
+    "category": "shoes",
+    "style_tags": ["streetwear", "casual", "sporty"],
+    "price": 120.00,
+    "promotion_flag": false
+  },
+  {
+    "id": 4,
+    "name": "Leather Biker Jacket",
+    "category": "accessory",
+    "style_tags": ["streetwear", "edgy", "outerwear"],
+    "price": 250.00,
+    "promotion_flag": true
+  },
+  {
+    "id": 5,
+    "name": "Linen Button-Down Shirt",
+    "category": "top",
+    "style_tags": ["summer", "beach", "casual", "bohemian"],
+    "price": 60.00,
+    "promotion_flag": false
+  },
+  {
+    "id": 6,
+    "name": "Chino Shorts",
+    "category": "bottom",
+    "style_tags": ["summer", "beach", "casual"],
+    "price": 45.00,
+    "promotion_flag": false
+  },
+  {
+    "id": 7,
+    "name": "Espadrilles",
+    "category": "shoes",
+    "style_tags": ["summer", "beach", "casual"],
+    "price": 80.00,
+    "promotion_flag": false
+  },
+  {
+    "id": 8,
+    "name": "Straw Fedora Hat",
+    "category": "accessory",
+    "style_tags": ["summer", "beach", "bohemian"],
+    "price": 35.00,
+    "promotion_flag": true
+  },
+  {
+    "id": 9,
+    "name": "Silk Blouse",
+    "category": "top",
+    "style_tags": ["business casual", "formal", "elegant"],
+    "price": 90.00,
+    "promotion_flag": false
+  },
+  {
+    "id": 10,
+    "name": "Tailored Trousers",
+    "category": "bottom",
+    "style_tags": ["business casual", "formal"],
+    "price": 110.00,
+    "promotion_flag": false
+  },
+  {
+    "id": 11,
+    "name": "Leather Loafers",
+    "category": "shoes",
+    "style_tags": ["business casual", "formal"],
+    "price": 150.00,
+    "promotion_flag": false
+  },
+  {
+    "id": 12,
+    "name": "Trench Coat",
+    "category": "accessory",
+    "style_tags": ["business casual", "formal", "outerwear"],
+    "price": 220.00,
+    "promotion_flag": false
+  },
+  {
+    "id": 13,
+    "name": "Graphic Hoodie",
+    "category": "top",
+    "style_tags": ["streetwear", "casual", "sporty"],
+    "price": 65.00,
+    "promotion_flag": true
+  },
+  {
+    "id": 14,
+    "name": "Cargo Pants",
+    "category": "bottom",
+    "style_tags": ["streetwear", "casual", "utilitarian"],
+    "price": 85.00,
+    "promotion_flag": false
+  },
+  {
+    "id": 15,
+    "name": "Chunky Sneakers",
+    "category": "shoes",
+    "style_tags": ["streetwear", "sporty", "chunky"],
+    "price": 180.00,
+    "promotion_flag": false
+  },
+  {
+    "id": 16,
+    "name": "Beanie Hat",
+    "category": "accessory",
+    "style_tags": ["streetwear", "casual", "winter"],
+    "price": 20.00,
+    "promotion_flag": false
+  },
+  {
+    "id": 17,
+    "name": "Flowy Maxi Dress",
+    "category": "top",
+    "style_tags": ["summer", "beach", "bohemian", "feminine"],
+    "price": 120.00,
+    "promotion_flag": true
+  },
+  {
+    "id": 18,
+    "name": "Denim Jacket",
+    "category": "accessory",
+    "style_tags": ["casual", "basics", "outerwear"],
+    "price": 95.00,
+    "promotion_flag": false
+  },
+  {
+    "id": 19,
+    "name": "Polo Shirt",
+    "category": "top",
+    "style_tags": ["preppy", "casual", "sporty"],
+    "price": 55.00,
+    "promotion_flag": false
+  },
+  {
+    "id": 20,
+    "name": "Boat Shoes",
+    "category": "shoes",
+    "style_tags": ["preppy", "summer", "casual"],
+    "price": 130.00,
+    "promotion_flag": false
+  }
+]
