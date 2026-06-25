@@ -71,43 +71,52 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Aero Outfit Search</h1>
-      <div className="search-bar">
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyPress={handleSearch}
-          placeholder="Search for a style (e.g., 'minimalist streetwear')"
+    <div>
+      <div className="header">
+        <img
+          src="Aeropostale-logo.png"
+          alt="Aeropostale Logo"
+          className="logo"
         />
       </div>
-
-      {recommendations && (
-        <div className="results">
-          {recommendations.outfits.length > 0 && (
-            <div>
-              <h2>Suggested Outfits</h2>
-              <div className="outfits-grid">
-                {recommendations.outfits.map((outfit, index) => (
-                  <OutfitCard key={index} outfit={outfit} />
-                ))}
-              </div>
-            </div>
-          )}
-
-          {recommendations.individual_products.length > 0 && (
-            <div>
-              <h2>Recommended Products</h2>
-              <div className="products-grid">
-                {recommendations.individual_products.map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-              </div>
-            </div>
-          )}
+      <div className="App">
+        {/* <h1>Aero Outfit Search</h1> */}
+        <div className="search-bar">
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyPress={handleSearch}
+            placeholder="Search for a style (e.g., 'minimalist streetwear')"
+          />
         </div>
-      )}
+
+        {recommendations && (
+          <div className="results">
+            {recommendations.outfits.length > 0 && (
+              <div>
+                <h2>Suggested Outfits</h2>
+                <div className="outfits-grid">
+                  {recommendations.outfits.map((outfit, index) => (
+                    <OutfitCard key={index} outfit={outfit} />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {recommendations.individual_products.length > 0 && (
+              <div>
+                <h2>Recommended Products</h2>
+                <div className="products-grid">
+                  {recommendations.individual_products.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
