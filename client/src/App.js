@@ -61,12 +61,40 @@ function App() {
     outfits: [],
     individual_products: [],
   });
+  const [loading, setLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const handleSearch = async (e) => {
-    if (e.key === "Enter") {
-      const response = await fetch(`${API_URL}/api/recommendations?q=${query}`);
+    if (e.key !== "Enter" || !query) return;
+
+    setLoading(true);
+    setHasSearched(true);
+    try {
+      console.log("Fetching:", `${API_URL}/api/recommendations?q=${query}`);
+      const response = await fetch(
+        `${API_URL}/api/recommendations?q=${encodeURIComponent(query)}`,
+      );
+      console.log("Status:", response.status);
+
+      if (!response.ok) {
+        // Handle non-successful responses (e.g., 503 from the server)
+        const errData = await response.json();
+        console.error("API Error:", errData.message);
+        setRecommendations({ outfits: [], individual_products: [] }); // Clear previous results
+        return; // Exit the function
+      }
+
       const data = await response.json();
-      setRecommendations(data);
+      console.log(data);
+      setRecommendations({
+        outfits: data.outfits || [],
+        individual_products: data.individual_products || [],
+      });
+    } catch (err) {
+      console.error("Fetch failed:", err);
+      setRecommendations({ outfits: [], individual_products: [] }); // Clear results on error
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -80,7 +108,6 @@ function App() {
         />
       </div>
       <div className="App">
-        {/* <h1>Aero Outfit Search</h1> */}
         <div className="search-bar">
           <input
             type="text"
@@ -91,8 +118,18 @@ function App() {
           />
         </div>
 
-        {recommendations && (
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
           <div className="results">
+            {hasSearched &&
+              recommendations.outfits.length === 0 &&
+              recommendations.individual_products.length === 0 && (
+                <p>
+                  No results found for "{query}". Please try another search.
+                </p>
+              )}
+
             {recommendations.outfits.length > 0 && (
               <div>
                 <h2>Suggested Outfits</h2>
