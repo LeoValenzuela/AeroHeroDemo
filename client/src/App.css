@@ -1,3 +1,115 @@
+.format {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  position: sticky;
+  top: 20px;
+  align-self: start;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+}
+
+.closet {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.closet-title {
+  margin: 0 0 15px 0;
+  font-size: 22px;
+}
+
+.closet-empty {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+}
+
+.closet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.closet-item {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.closet-item:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.closet-item-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.closet-item-actions button {
+  flex: 1;
+}
+
+.remove-button {
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.remove-button:hover {
+  background-color: #c82333;
+}
+
+.closet-item-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.closet-item-image {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.closet-item-blurb {
+  /* font-style: italic; */
+  color: #666;
+  font-size: 13px;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.closet-item-price {
+  display: block;
+  text-align: right;
+  font-weight: bold;
+  color: #28a745;
+}
+
 body {
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
@@ -15,24 +127,9 @@ h2 {
 }
 
 .App {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 100px; /* Adjust this value based on header height */
-  padding-left: 20px; /* Added horizontal padding for content */
-  padding-right: 20px; /* Added horizontal padding for content */
-}
-
-h1 {
-  text-align: center;
-  color: #1a1a1a;
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  background-color: #f0f2f5;
-  padding: 20px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .search-bar {
@@ -137,7 +234,7 @@ h1 {
 }
 
 .outfit-blurb {
-  font-style: italic;
+  /* font-style: italic; */
   color: #666;
   margin: -10px 0 15px 0;
   padding: 0 5px;
@@ -152,10 +249,6 @@ h1 {
   padding: 0;
   margin: 0 0 15px 0;
 }
-/* 
-.outfit-items li:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-} */
 
 .outfit-items li {
   display: flex;
@@ -206,7 +299,7 @@ h1 {
   border-color: #bbb;
 }
 
-.cart-button {
+.closet-button {
   background-color: #096db0;
   border: 1px solid #ccc;
   padding: 5px 10px;
@@ -217,9 +310,21 @@ h1 {
   transition: background-color 0.2s ease;
 }
 
-.cart-button:hover {
+.closet-button:hover:not(:disabled) {
   background-color: #7a87c4;
   border-color: #bbb;
+}
+
+.closet-button:disabled {
+  background-color: #a9c3f5;
+  border-color: #a9c3f5;
+  cursor: not-allowed;
+}
+
+.closet-button-edit {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
 }
 
 .product-card h3 {
@@ -252,9 +357,16 @@ h1 {
 }
 
 .header {
-  padding: 10px;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 15px;
+  padding: 15px;
   background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a1a;
 }
 
 .modal-overlay {
@@ -324,6 +436,50 @@ h1 {
   max-width: 50px;
   height: auto;
   border-radius: 5px;
+}
+
+.add-item-row {
+  padding: 0 !important;
+  border: none !important;
+}
+
+.add-item-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 72px;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 2px dashed #bbb;
+  border-radius: 8px;
+  background: none;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.add-item-tile:hover {
+  background-color: #f1f3f4;
+  border-color: #4285f4;
+  color: #4285f4;
+}
+
+.add-item-tile.active {
+  background-color: #e8f0fe;
+  border-color: #4285f4;
+  color: #4285f4;
+}
+
+.modal-hint {
+  color: #666;
+  font-style: italic;
+  text-align: center;
 }
 
 .outfit-total {
@@ -413,19 +569,23 @@ h1 {
 
 .filter-buttons button {
   padding: 10px 20px;
+  margin: 2px;
   border: 1px solid #dfe1e5;
   border-radius: 20px;
   background-color: #f8f9fa;
   cursor: pointer;
   font-size: 14px;
   outline: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .filter-buttons button:hover {
   background-color: #f1f3f4;
   border-color: #d2d5d8;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .filter-buttons button.active {
@@ -434,3 +594,26 @@ h1 {
   border-color: #4285f4;
 }
 
+.create-button {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  border: 1px solid #dfe1e5;
+  border-radius: 20px;
+  background-color: #4285f4;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  outline: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.create-button:hover {
+  color: black;
+  background-color: #f1f3f4;
+  border-color: #d2d5d8;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
