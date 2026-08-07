@@ -1,6 +1,6 @@
 # AeroHero Fashion Recommendation System Demo
 
-This is a functional demo of a fashion e-commerce recommendation system. Users can search for a general style, and the system recommends individual products and complete outfits based on a mock product catalog.
+This is a functional demo of a fashion e-commerce recommendation system. Users can search for a general style, and the system recommends individual products and complete outfits based on a mock product catalog using natural language.
 
 ## Features
 
